@@ -12,20 +12,20 @@ importers:
         specifier: ^2.3.1
         version: 2.3.2(vue@3.5.18(typescript@5.9.2))
       '@mlightcad/cad-simple-viewer':
-        specifier: 1.0.7
-        version: 1.0.7(@mlightcad/data-model@1.1.8)(lodash-es@4.17.21)(three@0.172.0)
+        specifier: 1.0.10
+        version: 1.0.10(@mlightcad/data-model@1.1.8)(lodash-es@4.17.21)(three@0.172.0)
       '@mlightcad/cad-viewer':
-        specifier: 1.0.7
-        version: 1.0.7(@mlightcad/cad-simple-viewer@1.0.7(@mlightcad/data-model@1.1.8)(lodash-es@4.17.21)(three@0.172.0))(@mlightcad/data-model@1.1.8)(@vueuse/core@11.3.0(vue@3.5.18(typescript@5.9.2)))(element-plus@2.10.7(vue@3.5.18(typescript@5.9.2)))(vue-i18n@10.0.8(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))
+        specifier: 1.0.10
+        version: 1.0.10(@mlightcad/cad-simple-viewer@1.0.10(@mlightcad/data-model@1.1.8)(lodash-es@4.17.21)(three@0.172.0))(@mlightcad/data-model@1.1.8)(@vueuse/core@11.3.0(vue@3.5.18(typescript@5.9.2)))(element-plus@2.10.7(vue@3.5.18(typescript@5.9.2)))(vue-i18n@10.0.8(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))
       '@mlightcad/data-model':
         specifier: 1.1.8
         version: 1.1.8
       '@mlightcad/libredwg-converter':
-        specifier: 2.0.8
-        version: 2.0.8(@mlightcad/data-model@1.1.8)(@mlightcad/libredwg-web@0.1.6)
+        specifier: 2.0.10
+        version: 2.0.10(@mlightcad/data-model@1.1.8)(@mlightcad/libredwg-web@0.1.9)
       '@mlightcad/libredwg-web':
-        specifier: 0.1.6
-        version: 0.1.6
+        specifier: 0.1.9
+        version: 0.1.9
       '@vueuse/core':
         specifier: ^11.1.0
         version: 11.3.0(vue@3.5.18(typescript@5.9.2))
@@ -523,17 +523,17 @@ packages:
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
     engines: {node: '>=8'}
 
-  '@mlightcad/cad-simple-viewer@1.0.7':
-    resolution: {integrity: sha512-MW+ZwBfb7DblPCXgB+z8XZdV/gCsx7GVkAx9E3O1zWsWfYaA0DNHUj2joS9LKDxI3VA+VIY3FqcIJ+mmEQQcVQ==}
+  '@mlightcad/cad-simple-viewer@1.0.10':
+    resolution: {integrity: sha512-ph4LyhkgzYM0vsRPRwpc+pgVUBhIJb/slS3OvLpQbdL/+zbk/FF73KsBchVwAnj5eGKrcp4m28ALljTogOQrsA==}
     peerDependencies:
       '@mlightcad/data-model': 1.1.8
       lodash-es: 4.17.21
       three: ^0.172.0
 
-  '@mlightcad/cad-viewer@1.0.7':
-    resolution: {integrity: sha512-19caRvz+uhUpm8n8z47R2rgJBPHpYKgbTEuKx6bKiwQJBGs5XqE4hK4iCL01hWytkJ6GLm6WjdR8DQMsyFgpEw==}
+  '@mlightcad/cad-viewer@1.0.10':
+    resolution: {integrity: sha512-QW2e5IhF7ZURVnrIUkdN3wjY8OLw5NZzf2DeVeOhde0w1GNYTfBpSvigwrzBYLuptru3W/V173egsRqhf7rnpg==}
     peerDependencies:
-      '@mlightcad/cad-simple-viewer': 1.0.7
+      '@mlightcad/cad-simple-viewer': 1.0.10
       '@mlightcad/data-model': 1.1.8
       '@vueuse/core': ^11.1.0
       element-plus: ^2.9.1
@@ -546,14 +546,14 @@ packages:
   '@mlightcad/dxf-json@1.0.8':
     resolution: {integrity: sha512-NOLt3LcyOti+Ero9PMbvZaYWvn2IwVL7ysty0aYxTdeYc3gs1+Xnj+VjaCEL6ACMXLlmQd8pFQjMdRsuIIUd2A==}
 
-  '@mlightcad/libredwg-converter@2.0.8':
-    resolution: {integrity: sha512-7nyETWLfbYihr8/aZOoTaqREFUMIzm7bJScZtEFjBgD1L3GaeaXpfSke+pwN4LYtCX+dhRANsPCY2/HgX+oTDw==}
+  '@mlightcad/libredwg-converter@2.0.10':
+    resolution: {integrity: sha512-HTMj4EMpw4CLnU8StXb/CMwugAlKGK2omfCAPKO4ikN/7wINfFoR0xGQ/htoiC901z0wLa8VEJZBlGTXwLEfMg==}
     peerDependencies:
       '@mlightcad/data-model': 1.1.8
-      '@mlightcad/libredwg-web': 0.1.6
+      '@mlightcad/libredwg-web': 0.1.9
 
-  '@mlightcad/libredwg-web@0.1.6':
-    resolution: {integrity: sha512-koij5nBsiFyqi2u4L4yU/4in6rcexz+22myv/3YU5TI6bftrlYZkUnDXYaUN/V262fr4+eS2ef+wysQ17WTFvQ==}
+  '@mlightcad/libredwg-web@0.1.9':
+    resolution: {integrity: sha512-IrkmG/HhbZ9le451Uq9QEl2M11xeTtVOvjwdDQThS0nB4+2iR59dNrKXZj9ngRUW8Xs/h61B4GPqQLFC7t7F7A==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2744,7 +2744,7 @@ snapshots:
 
   '@lukeed/csprng@1.1.0': {}
 
-  '@mlightcad/cad-simple-viewer@1.0.7(@mlightcad/data-model@1.1.8)(lodash-es@4.17.21)(three@0.172.0)':
+  '@mlightcad/cad-simple-viewer@1.0.10(@mlightcad/data-model@1.1.8)(lodash-es@4.17.21)(three@0.172.0)':
     dependencies:
       '@mlightcad/data-model': 1.1.8
       lodash-es: 4.17.21
@@ -2752,10 +2752,10 @@ snapshots:
       rbush: 4.0.1
       three: 0.172.0
 
-  '@mlightcad/cad-viewer@1.0.7(@mlightcad/cad-simple-viewer@1.0.7(@mlightcad/data-model@1.1.8)(lodash-es@4.17.21)(three@0.172.0))(@mlightcad/data-model@1.1.8)(@vueuse/core@11.3.0(vue@3.5.18(typescript@5.9.2)))(element-plus@2.10.7(vue@3.5.18(typescript@5.9.2)))(vue-i18n@10.0.8(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))':
+  '@mlightcad/cad-viewer@1.0.10(@mlightcad/cad-simple-viewer@1.0.10(@mlightcad/data-model@1.1.8)(lodash-es@4.17.21)(three@0.172.0))(@mlightcad/data-model@1.1.8)(@vueuse/core@11.3.0(vue@3.5.18(typescript@5.9.2)))(element-plus@2.10.7(vue@3.5.18(typescript@5.9.2)))(vue-i18n@10.0.8(vue@3.5.18(typescript@5.9.2)))(vue@3.5.18(typescript@5.9.2))':
     dependencies:
       '@element-plus/icons-vue': 2.3.2(vue@3.5.18(typescript@5.9.2))
-      '@mlightcad/cad-simple-viewer': 1.0.7(@mlightcad/data-model@1.1.8)(lodash-es@4.17.21)(three@0.172.0)
+      '@mlightcad/cad-simple-viewer': 1.0.10(@mlightcad/data-model@1.1.8)(lodash-es@4.17.21)(three@0.172.0)
       '@mlightcad/data-model': 1.1.8
       '@vueuse/core': 11.3.0(vue@3.5.18(typescript@5.9.2))
       element-plus: 2.10.7(vue@3.5.18(typescript@5.9.2))
@@ -2773,12 +2773,12 @@ snapshots:
     dependencies:
       '@fxts/core': 1.15.0
 
-  '@mlightcad/libredwg-converter@2.0.8(@mlightcad/data-model@1.1.8)(@mlightcad/libredwg-web@0.1.6)':
+  '@mlightcad/libredwg-converter@2.0.10(@mlightcad/data-model@1.1.8)(@mlightcad/libredwg-web@0.1.9)':
     dependencies:
       '@mlightcad/data-model': 1.1.8
-      '@mlightcad/libredwg-web': 0.1.6
+      '@mlightcad/libredwg-web': 0.1.9
 
-  '@mlightcad/libredwg-web@0.1.6': {}
+  '@mlightcad/libredwg-web@0.1.9': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
