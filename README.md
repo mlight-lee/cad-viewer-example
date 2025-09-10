@@ -10,8 +10,6 @@ This is an example application that demonstrates how to use the `@mlightcad/cad-
 - 🌐 **Internationalization**: Multi-language support (English and Chinese)
 - 🎯 **Advanced Controls**: Layer management, point styles, settings, and more
 - 📁 **File Support**: DXF and DWG file loading with drag & drop
-- 🎨 **Modern UI**: Built with Element Plus and UnoCSS for a professional look
-- 🔧 **Developer Tools**: Hot reload, linting, and build optimization
 
 ## Development
 
@@ -27,59 +25,86 @@ pnpm build
 
 # Preview production build
 pnpm preview
-
-# Analyze bundle size
-pnpm analyze
-
-# Lint code
-pnpm lint
-
-# Fix linting issues
-pnpm lint:fix
 ```
 
-## Usage
+## Usage of 
 
-This example demonstrates:
+Firstly, add the following dependencies into your package.json.
 
-1. **Vue.js Integration**: Using the `MlCadViewer` component with Vue 3
-2. **UI Framework**: Integration with Element Plus for UI components
-3. **Styling**: UnoCSS for utility-first CSS and custom styling
-4. **File Converters**: DWG support via LibreDWG converter
-5. **Internationalization**: Multi-language support with vue-i18n
-6. **Development Setup**: Hot reload and development tools
+- @mlightcad/cad-simple-viewer
+- @mlightcad/cad-viewer
+- @mlightcad/data-model
+- element-plus
+- vue
+- vue-i18n
 
-## Technical Stack
+Secondly, add one canvas element in your html.
 
-- **Framework**: Vue 3 with Composition API
-- **UI Library**: Element Plus with custom components
-- **Styling**: UnoCSS + SCSS
-- **Build Tool**: Vite with Vue plugin
-- **CAD Libraries**: 
-  - `@mlightcad/cad-viewer`: Main viewer component
-  - `@mlightcad/cad-simple-viewer`: Core viewer functionality
-  - `@mlightcad/data-model`: CAD data model
+```html
+<body>
+  <canvas id="canvas"></canvas>
+</body>
+```
 
-## Project Structure
+Thirdly, add the following code in your Vue component.
 
-- `src/main.ts` - Application entry point with converter registration
-- `index.html` - HTML template with loading spinner
-- `vite.config.ts` - Vite configuration with plugins
-- `package.json` - Dependencies and scripts
 
-## Key Features Demonstrated
+```vue
+<template>
+  <MlCadViewer canvas-id="canvas" locale="zh" url="example.dwg" />
+</template>
 
-- **Converter Registration**: Dynamic loading of DWG converters for production/development
-- **Component Registration**: Proper setup of CAD viewer components
-- **Error Handling**: Graceful handling of converter loading failures
-- **Loading States**: User feedback during initialization
-- **Modern Build**: Optimized production builds with code splitting
+<script setup lang="ts">
+import { MlCadViewer } from '@mlightcad/cad-viewer'
+</script>
+```
 
-## Browser Support
+Finally, copy the following files to **dist/assets** folder.
 
-- Modern browsers with WebGL support
-- WebAssembly support required for DWG files
-- ES2020+ JavaScript features
+- ./node_modules/@mlightcad/data-model/dist/dxf-parser-worker.js
+- ./node_modules/@mlightcad/cad-simple-viewer/dist/libredwg-parser-worker.js
+
+Those files are used to parser dxf/dwg files in web worker so that UI not blocked. You can copy those files to folder **dist/assets** manually.
+However, vite-plugin-static-copy is recommended to make your life easier.
+
+```typescript
+import { defineConfig } from 'vite'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
+import vue from '@vitejs/plugin-vue'
+
+export default defineConfig(() => {
+  const plugins = [
+    vue(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: './node_modules/@mlightcad/data-model/dist/dxf-parser-worker.js',
+          dest: 'assets'
+        },
+        {
+          src: './node_modules/@mlightcad/cad-simple-viewer/dist/libredwg-parser-worker.js',
+          dest: 'assets'
+        }
+      ]
+    })
+  ]
+
+  return {
+    base: './',
+    build: {
+      outDir: 'dist',
+      modulePreload: false,
+      rollupOptions: {
+        // Main entry point for the app
+        input: {
+          main: 'index.html'
+        }
+      }
+    },
+    plugins: plugins
+  }
+})
+```
 
 ## License
 

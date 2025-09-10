@@ -1,36 +1,10 @@
-import { resolve } from 'path'
-import { Alias, defineConfig } from 'vite'
+import { defineConfig } from 'vite'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
-import svgLoader from 'vite-svg-loader'
-import { visualizer } from 'rollup-plugin-visualizer'
 import vue from '@vitejs/plugin-vue'
 
-import Unocss from 'unocss/vite'
-import {
-  presetAttributify,
-  presetIcons,
-  presetUno,
-  transformerDirectives,
-  transformerVariantGroup
-} from 'unocss'
-
-export default defineConfig(({ command, mode }) => {
-  const aliases: Alias[] = []
-
+export default defineConfig(() => {
   const plugins = [
     vue(),
-    svgLoader(),
-    Unocss({
-      presets: [
-        presetUno(),
-        presetAttributify(),
-        presetIcons({
-          scale: 1.2,
-          warn: true
-        })
-      ],
-      transformers: [transformerDirectives(), transformerVariantGroup()]
-    }),
     viteStaticCopy({
       targets: [
         {
@@ -42,29 +16,21 @@ export default defineConfig(({ command, mode }) => {
           dest: 'assets'
         }
       ]
-    }) as any
+    })
   ]
-
-  // Add conditional plugins
-  if (mode === 'analyze') {
-    plugins.push(visualizer() as any)
-  }
 
   return {
     base: './',
-    resolve: {
-      alias: aliases
-    },
     build: {
       outDir: 'dist',
       modulePreload: false,
       rollupOptions: {
         // Main entry point for the app
         input: {
-          main: resolve(__dirname, 'index.html')
+          main: 'index.html'
         }
       }
     },
-    plugins: plugins as any
+    plugins: plugins
   }
 })
