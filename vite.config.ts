@@ -1,7 +1,6 @@
 import { resolve } from 'path'
 import { Alias, defineConfig } from 'vite'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
-import viteCompression from 'vite-plugin-compression'
 import svgLoader from 'vite-svg-loader'
 import { visualizer } from 'rollup-plugin-visualizer'
 import vue from '@vitejs/plugin-vue'
@@ -31,41 +30,24 @@ export default defineConfig(({ command, mode }) => {
         })
       ],
       transformers: [transformerDirectives(), transformerVariantGroup()]
-    })
+    }),
+    viteStaticCopy({
+      targets: [
+        {
+          src: './node_modules/@mlightcad/data-model/dist/dxf-parser-worker.js',
+          dest: 'assets'
+        },
+        {
+          src: './node_modules/@mlightcad/cad-simple-viewer/dist/libredwg-parser-worker.js',
+          dest: 'assets'
+        }
+      ]
+    }) as any
   ]
 
   // Add conditional plugins
   if (mode === 'analyze') {
     plugins.push(visualizer() as any)
-  }
-
-  if (command === 'serve') {
-    plugins.push(
-      viteStaticCopy({
-        targets: [
-          {
-            src: './node_modules/@mlightcad/libredwg-web/dist/libredwg-web.js',
-            dest: 'assets'
-          }
-        ]
-      }) as any
-    )
-  }
-
-  // Add compression plugins for production builds
-  if (command === 'build') {
-    plugins.push(
-      viteCompression({
-        algorithm: 'gzip',
-        ext: '.gz',
-        filter: /\.(js|css|svg|ttf|otf|eot|woff|woff2)$/i
-      }) as any,
-      viteCompression({
-        algorithm: 'brotliCompress',
-        ext: '.br',
-        filter: /\.(js|css|svg|ttf|otf|eot|woff|woff2)$/i
-      }) as any
-    )
   }
 
   return {
@@ -80,13 +62,6 @@ export default defineConfig(({ command, mode }) => {
         // Main entry point for the app
         input: {
           main: resolve(__dirname, 'index.html')
-        },
-        output: {
-          manualChunks: id => {
-            if (id.includes('@mlightcad/libredwg-web')) {
-              return 'libredwg-web'
-            }
-          }
         }
       }
     },
