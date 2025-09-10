@@ -27,7 +27,7 @@ pnpm build
 pnpm preview
 ```
 
-## Usage of 
+## Usage
 
 Firstly, add the following dependencies into your package.json.
 
