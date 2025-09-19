@@ -63,6 +63,7 @@ Finally, copy the following files to **dist/assets** folder.
 
 - ./node_modules/@mlightcad/data-model/dist/dxf-parser-worker.js
 - ./node_modules/@mlightcad/cad-simple-viewer/dist/libredwg-parser-worker.js
+- ./node_modules/@mlightcad/cad-simple-viewer/dist/mtext-renderer-worker.js
 
 Those files are used to parser dxf/dwg files in web worker so that UI not blocked. You can copy those files to folder **dist/assets** manually.
 However, vite-plugin-static-copy is recommended to make your life easier.
@@ -82,7 +83,7 @@ export default defineConfig(() => {
           dest: 'assets'
         },
         {
-          src: './node_modules/@mlightcad/cad-simple-viewer/dist/libredwg-parser-worker.js',
+          src: './node_modules/@mlightcad/cad-simple-viewer/dist/*-worker.js',
           dest: 'assets'
         }
       ]
