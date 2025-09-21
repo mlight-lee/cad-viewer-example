@@ -38,20 +38,12 @@ Firstly, add the following dependencies into your package.json.
 - vue
 - vue-i18n
 
-Secondly, add one canvas element in your html.
-
-```html
-<body>
-  <canvas id="canvas"></canvas>
-</body>
-```
-
-Thirdly, add the following code in your Vue component.
+Secondly, add the following code in your Vue component.
 
 
 ```vue
 <template>
-  <MlCadViewer canvas-id="canvas" locale="zh" url="example.dwg" />
+  <MlCadViewer locale="zh" url="https://cdn.jsdelivr.net/gh/mlight-lee/cad-data/data/anteen.dwg" />
 </template>
 
 <script setup lang="ts">

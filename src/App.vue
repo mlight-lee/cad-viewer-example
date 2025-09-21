@@ -1,11 +1,8 @@
 <template>
-  <div id="app-root">
-    <MlCadViewer
-      locale="en"
-      canvas-id="canvas"
-      url="https://cdn.jsdelivr.net/gh/mlight-lee/cad-data/data/anteen.dwg"
-    />
-  </div>
+  <MlCadViewer
+    locale="en"
+    url="https://cdn.jsdelivr.net/gh/mlight-lee/cad-data/data/anteen.dwg"
+  />
 </template>
 
 <script setup lang="ts">
@@ -19,10 +16,3 @@ AcApSettingManager.instance.isShowCommandLine = false
 // AcApSettingManager.instance.isShowCoordinate = false
 </script>
 
-<style scoped>
-#app-root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-</style>
