@@ -101,4 +101,4 @@ export default defineConfig(() => {
 
 ## License
 
-MIT License - see the main project LICENSE file for details. 
+[MIT](LICENSE)
